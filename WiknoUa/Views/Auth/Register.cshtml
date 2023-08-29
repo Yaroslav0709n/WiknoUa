@@ -1,0 +1,53 @@
+﻿@model WiknoUa.Models.Auth.Register
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Registration</h2>
+            @using (Html.BeginForm("Register", "Auth", FormMethod.Post, new { @class = "needs-validation", novalidate = "true" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FirstName)
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", required = "true" })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.LastName)
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", required = "true" })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email)
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", required = "true", type = "email" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.StreetAddress)
+                    @Html.TextBoxFor(model => model.StreetAddress, new { @class = "form-control", required = "true" })
+                    @Html.ValidationMessageFor(model => model.StreetAddress, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.City)
+                    @Html.TextBoxFor(model => model.City, new { @class = "form-control", required = "true" })
+                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password)
+                    @Html.PasswordFor(model => model.Password, new { @class = "form-control", required = "true" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2">Registration</button>
+                <p class="text-center"><a class="fs-15" href="/Auth/Login">I have an account</a></p>
+            }
+        </div>
+    </div>
+</div>
+

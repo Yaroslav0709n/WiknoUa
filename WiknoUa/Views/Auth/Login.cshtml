@@ -1,0 +1,29 @@
+﻿@model WiknoUa.Models.Auth.Login
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Authorization</h2>
+            @using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email)
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Email)
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password)
+                    @Html.TextBoxFor(model => model.Password, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Password)
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-2">Authorization</button>
+                <p class="text-center"><a class="fs-15" href="/Auth/Register">Don't have an account?</a></p>
+
+            }
+        </div>
+    </div>
+</div>
